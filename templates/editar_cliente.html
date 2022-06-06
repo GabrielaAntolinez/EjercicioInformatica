@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <div class='row'>
+    <div class='col-5 mx-auto'>
+      <h3>Editar Información de Cliente</h3><hr>
+      <form method='post' action='{{url_for("editar_cliente",uid=datas.UID)}}'>
+        <div class='form-group'>
+          <label>Nombre de Usuario</label>
+          <input type='text' name='uname' required class='form-control' value='{{datas.UNAME}}'>
+        </div>
+        <div class='form-group'>
+          <label>Contacto</label>
+          <input type='text' name='contact' required class='form-control' value='{{datas.CONTACT}}'>
+        </div>
+        <input type='submit' value='Editar Cliente' class='btn btn-primary'>
+      </form>
+    </div>
+  </div>
+{% endblock %}

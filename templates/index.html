@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <p class='text-right'><a href='{{url_for("agregar_cliente")}}' class='btn btn-success '>+Agregar Cliente</a></p>
+  <table class='table table-bordered'>
+    <thead>
+      <th>No.</th>
+      <th>Identificación</th>
+      <th>Nombre</th>
+      <th>Contacto</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </thead>
+    <tbody>
+      {% for row in datas %}
+        <tr>
+          <td>{{loop.index}}</td>
+          <td>{{row.UID}}</td>
+          <td>{{row.UNAME}}</td>
+          <td>{{row.CONTACT}}</td>
+          <td><a href='{{url_for("editar_cliente",uid=row.UID)}}' class='btn btn-primary'>Editar</a></td>
+          <td><a href='{{url_for("eliminar_cliente",uid=row.UID)}}' class='btn btn-danger' onclick='return confirm("¿Está seguro de eliminar el cliente?")'>Eliminar</a></td>
+        </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+{% endblock %}
